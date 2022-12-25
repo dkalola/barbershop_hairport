@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+</head>
+<body >
+
+
+    <div class="row">
+        <h1>Date Selector Basic:</h1>
+        <div class="col-12"> 
+            <iframe id="myIframe" class="responsive-iframe" frameborder="0" width="100%" height="500px" style="background-color: transparent;"></iframe>
+        </div>
+        <!-- btnc = button color 
+            color = text color
+            br = border radius 
+            type :
+             0 = custom
+             1 - 8 = inbuilt types-->
+
+          
+ 
+             <script>
+                var url = new URL("http://localhost:3000/date_select?type=0&color=FFFFFF&br=20");
+                url.searchParams.append('apiKey', 'z6CXpBzI44EUyf9l6K1wDNiugThog3');
+                document.getElementById('myIframe').src = url;
+               
+             </script>
+    </div>
+    <hr>
+
+   <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+
+
+</body>
+</html>

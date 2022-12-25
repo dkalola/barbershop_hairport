@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <style>
+    #apform{
+        display: none;
+         background-color: transparent;
+    }
+    
+
+
+    #regform{
+        display: inline;
+        background-color: transparent;
+    }
+   
+    #regform1{
+        display: inline;
+         background-color: transparent;
+    }
+    #booked{
+        display: none;
+        background-color: transparent;
+    }
+  </style>
+
+
+    <title>Date Picker 1</title>
+
+ 
+</head>
+<body>
+    <input type="text" name="id" id="id" hidden>
+
+   
+    <div id="regform">
+        <div class="row text-center regform mt-3">
+            <div class="col"><p>Please find your email or register your email below:</p></div>
+        </div>
+
+        <div class="row d-flex justify-content-center regform1">
+           
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Email:</label>
+                    <input type="email" id="emailLogin" class="form-control" id="exampleInputPassword1" placeholder="Registered Email">
+                </div>
+            </div>
+           
+        </div>
+
+         <div class="row d-flex justify-content-center regform1">
+           
+            <div class="col-3 text-center">
+                <p>OR</p>
+            </div>
+           
+        </div>
+
+
+        <div class="row text-center regform">
+            <div class="col"><p>Please register your email here:</p></div>
+        </div>
+        <div class="row d-flex justify-content-center regform">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name:</label>
+                    <input type="text" id="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Email:</label>
+                    <input type="email" id="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Email">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Phone:</label>
+                    <input type="text" id="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone">
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center my-2 regform">
+            
+
+                <% if (type == 1) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-primary" onclick="createGuest()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            <%} else if (type == 2) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-success" onclick="createGuest()"  style="border-radius: <%= br %>px ;">Submit</button></div>
+
+            <%} else if (type == 3) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-danger" onclick="createGuest()" style="border-radius: <%= br %>px ;">Submit</button></div>
+
+            <%} else if (type == 4) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-warning" onclick="createGuest()" style="border-radius: <%= br %>px ;">Submit</button></div>
+
+            <%} else if (type == 5) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-info" onclick="createGuest()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            
+            <%} else if (type == 6) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-light" onclick="createGuest()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            
+            <%} else if (type == 7) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-dark" onclick="createGuest()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            <%} else if (type == 8) { %>
+                <div class="col d-flex justify-content-center"> <button type="submit" class="btn btn-link" onclick="createGuest()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            <%} else if (color) { %>
+                <div class="col d-flex justify-content-center"><button type="submit" class="btn" style="background-color: #<%= btnc %>;color:#<%= color %>;border-radius: <%= br %>px;" onclick="createGuest()">Submit</button></div>
+            <% } %>
+        </div>
+    </div>
+    
+    
+    <div class="row d-flex justify-content-center my-2">
+        <small id="error"></small>
+    </div>
+
+    <div id="apform" class="container">
+        <div class="row text-center " >
+            <div class="col"> <p>Select Date and Time to submit the appointment.</p></div>
+        </div>
+
+         <div class="row d-flex justify-content-center">
+            <div class="col-xs mr-3">
+                <!-- <input type="datetime-local" id="meeting-time"
+       name="meeting-time" 
+       min="2022-11-03T14:19" max="2022-11-08T14:19"> -->
+                 <input  class="form-control" id="date" type="datetime-local" min="2022-11-3T14:19"/>
+                 <!-- <div class="row">
+                    <div class="col">
+                         <div class="form-group">
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+           
+            <% if (type == 1) { %>
+                <div class="col-xs mt-xs-0"><button type="button" class="btn btn-primary" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            <%} else if (type == 2) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn btn-success" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+
+            <%} else if (type == 3) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn btn-danger" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+
+            <%} else if (type == 4) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn btn-warning" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+
+            <%} else if (type == 5) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn btn-info" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            
+            <%} else if (type == 6) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn btn-light" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            
+            <%} else if (type == 7) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn btn-dark" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            <%} else if (type == 8) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn btn-link" onclick="myFunction()" style="border-radius: <%= br %>px ;">Submit</button></div>
+            <%} else if (color) { %>
+                <div class="col-xs mt-xs-0 "><button type="button" class="btn" style="background-color: #<%= btnc %>;color:#<%= color %>;border-radius: <%= br %>px ;" onclick="myFunction()" >Submit</button></div>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="row" id="booked">
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 40rem;">
+            <div class="card-body">
+                <h5 class="card-title" style="color: green;">You appointment was booked!</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Details</h6>
+                <p class="card-text"><b>Appointment ID:</b> <span id="appid"></span></p>
+                <p class="card-text"><b>Place:</b> <span id="place"></span></p>
+                <p class="card-text"><b>Time:</b> <span id="time"></span></p>
+                <small>Please take a screenshot of this item.</small>
+                <br>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col"> <small>Powered by: SoftLand</small></div>
+    </div>
+
+
+         
+
+<script>
+
+  
+   
+
+    if("<%= testVersions %>" == "1"){
+       document.getElementById('apform').style.display = 'inline';
+       document.getElementById('regform').style.display = 'none';
+       document.getElementById('test').style.display = 'none';
+
+    }
+
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+      async function createGuest() {
+
+        if("<%= apiKey %>" != "test"){
+               if(document.getElementById("emailLogin").value != ""){
+
+                const response = await fetch("http://localhost:3000/api/guests?apiKey=<%= apiKey %>&email="+document.getElementById("emailLogin").value)
+                        .then((response) => {
+                            return response.json();
+                        })
+                        .catch(function(e) {
+                            // handle the error
+                            console.log(e);
+                        });
+
+                    if(response){
+                        document.getElementById("id").value = response[0]._id;
+                        document.getElementById("error").innerText = "You can book your appointment.";
+                        document.getElementById("error").style.color = "green";
+                         var elements = document.getElementById('apform').style.display = 'inline';    
+                        var elements1 = document.getElementById('regform').style.display = 'none';
+                    }else{
+                         document.getElementById("error").innerText = "Error";
+                        document.getElementById("error").style.color = "red";
+                    }
+
+                    
+
+                }else if(document.getElementById("name").value != "" && document.getElementById("email").value != "" && document.getElementById("phone").value != ""){
+                    // // ************** working **************
+                        var details = {
+                            "name": document.getElementById("name").value,
+                            "email": document.getElementById("email").value,
+                            "phone": document.getElementById("phone").value,
+                        };
+
+                        var formBody = [];
+                        for (var property in details) {
+                        var encodedKey = encodeURIComponent(property);
+                        var encodedValue = encodeURIComponent(details[property]);
+                        formBody.push(encodedKey + "=" + encodedValue);
+                        }
+                        formBody = formBody.join("&");
+
+                        const response = await fetch('http://localhost:3000/api/guest?apiKey=<%= apiKey %>', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                        },
+                        body: formBody
+                        });
+
+                    const myJson = await response.json(); //extract JSON from the http response
+
+                        if(myJson.status == true){
+                            document.getElementById("id").value = myJson._id;
+                            document.getElementById("error").innerText = "ID:"+ myJson._id; 
+                            document.getElementById("error").style.color = "green";
+
+                            var elements = document.getElementById('apform').style.display = 'inline';
+                            var elements1 = document.getElementById('regform').style.display = 'none';
+                            
+                        }else{
+                            document.getElementById("error").innerText = myJson.message;
+                            document.getElementById("error").style.color = "red";
+                        }
+                }else{
+                    document.getElementById("error").innerText = "You are missing required information"; 
+                    document.getElementById("error").style.color = "red";
+                }
+        }else{
+
+            var elements = document.getElementById('apform').style.display = 'inline';
+            var elements1 = document.getElementById('regform').style.display = 'none';
+
+            
+            document.getElementById("error").innerHTML = "This is a test model &#128516;"; 
+            document.getElementById("error").style.color = "Green";
+        }
+
+     
+
+      
+
+       
+       
+}
+
+    async function myFunction() {
+
+        if("<%= apiKey %>" != "test"){
+              // // ************** working **************
+                var details = {
+                    "guestID": document.getElementById("id").value,
+                    "location": "Chicago, IL",
+                    "time": document.getElementById("date").value,
+                };
+
+                console.log(details);
+
+                var formBody = [];
+                for (var property in details) {
+                var encodedKey = encodeURIComponent(property);
+                var encodedValue = encodeURIComponent(details[property]);
+                formBody.push(encodedKey + "=" + encodedValue);
+                }
+                formBody = formBody.join("&");
+
+                const response = await fetch('http://localhost:3000/api/appointment?apiKey=<%= apiKey %>', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                body: formBody
+                });
+
+                const myJson = await response.json(); //extract JSON from the http response
+
+                if(myJson.status){
+                    document.getElementById("error").innerHTML = "Your appointment was successfully booked."; 
+                    document.getElementById("error").style.color = "Green";
+                    
+                    var elements = document.getElementById('apform').style.display = 'none';
+                    var elements1 = document.getElementById('regform').style.display = 'none';
+                    var elements3 = document.getElementById('booked').style.display = 'inline';
+                    document.getElementById("appid").innerText = myJson._id;
+                    document.getElementById("place").innerText = myJson.location;
+                    const d = new Date(myJson.time);
+                    document.getElementById("time").innerText = d.toDateString();
+                }else{
+                    document.getElementById("error").innerHTML = myJson.message; 
+                    document.getElementById("error").style.color = "Red";
+                }
+
+            
+                console.log(myJson);
+        }else{
+            document.getElementById("error").innerHTML = "This is a test model &#128516;"; 
+            document.getElementById("error").style.color = "Green";
+        }
+
+      
+}
+
+
+</script>
+ <!-- Vendor JS Files -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/vendor/jquery-sticky/jquery.sticky.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+</body>
+</html>
